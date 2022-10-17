@@ -12,12 +12,31 @@
 const btnPlay = document.getElementById('play');
 
 
-
 // funzione che fara partire il gioco 
 function play(){
-    // funzione che genra la griglia di gioco 
+    const fieldGame = document.getElementById('box-grglia');
+    fieldGame.innerHTML = '';
+
+
+//    livello di gioco  
+    const levelGame = document.getElementById('livello');
+    const livello = levelGame.value;
+    let numCelle;
+    switch(livello){
+        case '1':
+            numCelle = 100;
+        break
+        case '2':
+            numCelle = 81;
+        break
+        case '3':
+            numCelle = 49;
+        break
+    }
+    let cellSide = Math.sqrt(numCelle);
+// funzione che genra la griglia di gioco 
     function genereteGrid(){
-        const fieldGame = document.getElementById('box-grglia');
+        
         const grid = document.createElement('div');
         grid.className = 'grid'; 
         for(let i=0; i <= 100; i++){
@@ -25,9 +44,14 @@ function play(){
             cella.className = 'square';
             cella.innerHTML = `<span> ${i++}</span> `;
             grid.appendChild(cella)
+            cella.style.width = `calc(100% / ${cellSide})`
+            cella.style.height = `calc(100% / ${cellSide})`
 
         }
+
+        
         fieldGame.appendChild(grid);
+       
     }
     // chiamo la funzione
     genereteGrid();

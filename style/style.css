@@ -29,7 +29,7 @@ main{
     align-content: flex-start;
     width: 500px;
     height: 500px;
-    background-color: rgb(7, 52, 7);
+    background-color: rgb(32, 140, 32);
 }
 
 .square{
@@ -38,8 +38,7 @@ main{
     justify-content: center;
     cursor: pointer;
     border: 1px solid black;
-    width: calc(100% / 10);
-    height: calc(100% / 10);
+   
 }
 
 
