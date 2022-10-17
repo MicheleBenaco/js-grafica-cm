@@ -1,0 +1,28 @@
+/* header */
+.header{
+    padding-top: 20px;
+    height: 80px;
+}
+button{
+    height: 50px;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.text-icona{
+    color: rgb(136, 208, 19);
+    
+}
+main{
+    height: calc( 100vh - 160px);
+    overflow-y: auto;
+}
+
+
+
+
+/* footer */
+footer{
+    height: 80px;
+    background-color: black;
+}
