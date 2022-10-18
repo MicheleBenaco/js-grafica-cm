@@ -25,15 +25,16 @@ function play(){
     switch(level){
         case '1':
          default:
-            numCelle = 100;
+            numCell = 100;
         break;
         case '2':
-            numCelle = 81;
+            numCell = 81;
         break;
         case '3':
-            numCelle = 49;
+            numCell = 49;
         break;
     }
+    console.log(level)
     // funzione che genera la cella
     function drawCell (num){
         const cellaPerSide = Math.sqrt(numCell);
@@ -57,7 +58,7 @@ function play(){
     function genereteGrid(){
         const grid = document.createElement('div');
         grid.className = 'grid'; 
-        for(let i=0; i <= numCell; i++){
+        for(let i=1; i <= numCell; i++){
             const cella = drawCell(i);
             grid.appendChild(cella)
 
