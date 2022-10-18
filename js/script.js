@@ -19,33 +19,55 @@ function play(){
 
 
 //    livello di gioco  
+    let numCell;
     const levelGame = document.getElementById('livello');
-    const livello = levelGame.value;
-    let numCelle;
-    switch(livello){
+    const level = levelGame.value;
+    switch(level){
         case '1':
+         default:
             numCelle = 100;
-        break
+        break;
         case '2':
             numCelle = 81;
-        break
+        break;
         case '3':
             numCelle = 49;
-        break
+        break;
     }
-    let cellSide = Math.sqrt(numCelle);
-// funzione che genra la griglia di gioco 
-    function genereteGrid(){
+    // funzione che genera la cella
+    function drawCell (num){
+        const cellaPerSide = Math.sqrt(numCell);
+        const cella = document.createElement('div');
+        cella.className = 'square';
+        cella.style.width = `calc(100% / ${cellaPerSide})`;
+        cella.style.height = `calc(100% / ${cellaPerSide})`;
+        cella.innerHTML=`<span> ${num}</span>  `;
+
+    // funzione che cambia il colore alla cella
+    cella.addEventListener('click',function(){
+        this.classList.add('colorSquare')
+    })
+
+        return cella;
+    
+
         
+    }
+// funzione che genera la griglia di gioco 
+    function genereteGrid(){
         const grid = document.createElement('div');
         grid.className = 'grid'; 
-        for(let i=0; i <= 100; i++){
-            const cella = document.createElement('div');
-            cella.className = 'square';
-            cella.innerHTML = `<span> ${i++}</span> `;
+        for(let i=0; i <= numCell; i++){
+            const cella = drawCell(i);
             grid.appendChild(cella)
-            cella.style.width = `calc(100% / ${cellSide})`
-            cella.style.height = `calc(100% / ${cellSide})`
+
+
+            // const cella = document.createElement('div');
+            // cella.className = 'square';
+            // cella.innerHTML = `<span> ${i++}</span> `;
+            // grid.appendChild(cella)
+            // cella.style.width = `calc(100% / ${cellSide})`
+            // cella.style.height = `calc(100% / ${cellSide})`
 
         }
 
